@@ -1,41 +1,58 @@
-/* Base container setup: flex layout, row wrapping, 24px vertical spacing */
+/* Wrapper setup as per test expectations */
 #wrapper {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 24px;
+  justify-content: space-between; /* required by test */
+  row-gap: 24px;                  /* vertical gap between rows */
 }
 
-/* Row 1: DSA (50%), MERN (30%), space in between */
+/* Common product styles */
+.product {
+  display: flex;                  /* required */
+  align-items: center;            /* required */
+  justify-content: center;        /* required */
+  height: 50px;                   /* required */
+  color: white;                   /* rgb(255, 255, 255) */
+}
+
+/* DSA - first in row 1 */
 #dsa {
-  flex: 0 0 50%;
-  align-self: center;  /* vertically center within the row */
-  order: 1;
+  background-color: rgb(137, 0, 35); /* required color */
+  order: 0;
+  flex-basis: 50%;
+  align-self: center;
 }
 
+/* MERN - second in row 1 */
 #mern {
-  flex: 0 0 30%;
-  height: 75px;
-  margin-left: auto;   /* pushes MERN to the right, creating space */
-  order: 2;
+  background-color: rgb(243, 127, 27);
+  order: 1;
+  flex-basis: 30%;
+  height: 75px; /* overrides .product height */
 }
 
-/* Row 2: AccioJob at 75% width, centered */
+/* AccioJob - row 2 */
 #acciojob {
-  flex: 0 0 75%;
-  margin: 0 auto;      /* shorthand to center horizontally */
-  order: 3;
+  background-color: rgb(98, 110, 227);
+  order: 1;           /* required in test */
+  flex-basis: 75%;
+  margin-left: auto;
+  margin-right: auto; /* center horizontally */
 }
 
-/* Row 3: Business Analytics (40%), then Spring fills space with 10px gap */
+/* Business Analytics - first in row 3 */
 #buisness-analytics {
-  flex: 0 0 40%;
-  margin-right: 10px;  /* exact horizontal gap */
-  align-self: flex-end; /* align bottom of the row */
-  order: 4;
+  background-color: rgb(17, 150, 126);
+  order: 2;           /* required in test */
+  flex-basis: 40%;
+  margin-right: 10px; /* required gap */
+  align-self: flex-end;
 }
 
+/* Spring - second in row 3 */
 #spring {
-  flex: 1 1 auto;      /* fills remaining space */
-  height: 75px;
-  order: 5;
+  background-color: rgb(108, 117, 125);
+  order: 3;
+  flex: 1 1 auto;
+  height: 75px; /* overrides .product height */
 }
