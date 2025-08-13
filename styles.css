@@ -1,1 +1,41 @@
-/*  your css code here. If applicable */
+/* Base container setup: flex layout, row wrapping, 24px vertical spacing */
+#wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 24px;
+}
+
+/* Row 1: DSA (50%), MERN (30%), space in between */
+#dsa {
+  flex: 0 0 50%;
+  align-self: center;  /* vertically center within the row */
+  order: 1;
+}
+
+#mern {
+  flex: 0 0 30%;
+  height: 75px;
+  margin-left: auto;   /* pushes MERN to the right, creating space */
+  order: 2;
+}
+
+/* Row 2: AccioJob at 75% width, centered */
+#acciojob {
+  flex: 0 0 75%;
+  margin: 0 auto;      /* shorthand to center horizontally */
+  order: 3;
+}
+
+/* Row 3: Business Analytics (40%), then Spring fills space with 10px gap */
+#buisness-analytics {
+  flex: 0 0 40%;
+  margin-right: 10px;  /* exact horizontal gap */
+  align-self: flex-end; /* align bottom of the row */
+  order: 4;
+}
+
+#spring {
+  flex: 1 1 auto;      /* fills remaining space */
+  height: 75px;
+  order: 5;
+}
